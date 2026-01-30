@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 // assert: order number is returned using using get/orders
 test('GET /orders', async( {request} ) => {
   // get orders with params from met office api doc
-  const response = await request.get('/orders', {
+const response = await request.get('https://data.hub.api.metoffice.gov.uk/atmospheric-models/1.0.0/orders', {
     params: {
       detail: 'MINIMAL',
       dataSpec: '1.1.0'
