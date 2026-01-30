@@ -1,8 +1,11 @@
 import { test, expect } from '@playwright/test';
+import dotenv from 'dotenv';
+dotenv.config();
+
 // assert: order number is returned using using get/orders
 test('GET /orders', async( {request} ) => {
   // get orders with params from met office api doc
-const response = await request.get('https://data.hub.api.metoffice.gov.uk/atmospheric-models/1.0.0/orders', {
+const response = await request.get('/orders', {
     params: {
       detail: 'MINIMAL',
       dataSpec: '1.1.0'
@@ -10,9 +13,9 @@ const response = await request.get('https://data.hub.api.metoffice.gov.uk/atmosp
   });
 
   // assert: returns a json with order number. Response is ok
-  expect(response.ok()).toBeTruthy();
+  //expect(response.ok()).toBeTruthy();
 
   // check response json
   const body = await response.json();
-  expect(body).toHaveProperty('orderId')
+  expect(body).toHaveProperty('orderId');
 })

@@ -10,7 +10,7 @@ test('homepage has title', async ({ page }) => {
 test('get in touch button navigates to contact us form page', async ({page}) => {
 await page.goto('https://www.tiqtoq.co.uk/')
 // click on the get in touch button
-await page.getByRole('link', {name: 'Get In Touch'}).first().click();
+await page.getByRole('link', {name: /Get In Touch/i}).first().click();
 
 // assert page loads with get in touch heading
 await expect(page.getByRole('heading',{ name: 'Get In Touch'})).toBeVisible();
