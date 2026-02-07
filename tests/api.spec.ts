@@ -16,4 +16,4 @@ const response = await request.get('/orders', {
   // check response json
   const body = await response.json();
   expect(body).toHaveProperty('orderId');
-})
+});
