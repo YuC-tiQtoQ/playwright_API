@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Locator, Page } from '@playwright/test';
+
 // test the get in touch button
 test('get in touch button navigates to contact us form page', async ({page}) => {
     // navigate to homepage
